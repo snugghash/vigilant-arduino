@@ -3,7 +3,6 @@ int pinRed = 7;
 int pinYellow = 8;
 int pinGreen = 9;
 void setup() {
-  // put your setup code here, to run once:
   pinMode(pinRed, OUTPUT);
   pinMode(pinGreen, OUTPUT);
   pinMode(pinYellow, OUTPUT);
@@ -19,18 +18,21 @@ void loop() {
   if(Serial.available()) {
     char input = Serial.read();
     if (input == 'R') {
+      //Serial.println(digitalRead(pinRed));
       if (digitalRead(pinRed) == HIGH)
         digitalWrite(pinRed,LOW);
       else
         digitalWrite(pinRed, HIGH);
+      //Serial.println(digitalRead(pinRed));
+
     }
-    if (input == 'Y') {
+    else if (input == 'Y') {
       if (digitalRead(pinYellow) == HIGH)
         digitalWrite(pinYellow,LOW);
       else
         digitalWrite(pinYellow, HIGH);
     }
-    if (input == 'G') {
+    else if (input == 'G') {
       if (digitalRead(pinGreen) == HIGH)
         digitalWrite(pinGreen,LOW);
       else
